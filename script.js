@@ -24,3 +24,10 @@ const wordBank = ['Lion', 'Lion',
                   'Koala', 'Koala',
                   'Raccoon', 'Raccoon'
                 ];
+
+const startBtn = document.querySelector('.start-btn');
+startBtn.addEventListener('click', disableStartBtn);
+
+function disableStartBtn() {
+    startBtn.disabled = true;
+}
