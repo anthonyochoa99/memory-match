@@ -7,3 +7,23 @@ main, .instructions {
     flex-direction: column;
     align-items: center;
 }
+
+main {
+    gap: 20px;
+}
+
+.game-board {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    background-color: aqua;
+}

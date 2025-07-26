@@ -22,7 +22,12 @@ const wordBank = ['Lion', 'Lion',
                   'Lizard', 'Lizard',
                   'Camel', 'Camel',
                   'Koala', 'Koala',
-                  'Raccoon', 'Raccoon'
+                  'Raccoon', 'Raccoon',
+                  'Octopus', 'Octopus',
+                  'Stingray', 'Stingray',
+                  'Jellyfish', 'Jellyfish',
+                  'Shark', 'Shark',
+                  'Dolphin', 'Dolphin'
                 ];
 let usedWords = [];
 
@@ -37,7 +42,7 @@ function disableStartBtn() {
 function generateCards() {
     let gameBoard = document.querySelector('.game-board');
 
-    for (let i = 1; i < 51; i++) {
+    for (let i = 1; i < 56; i++) {
         let card = document.createElement('div');
         card.classList.add(`card-${i}`);
         
