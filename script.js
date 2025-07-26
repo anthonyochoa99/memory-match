@@ -24,6 +24,7 @@ const wordBank = ['Lion', 'Lion',
                   'Koala', 'Koala',
                   'Raccoon', 'Raccoon'
                 ];
+let usedWords = [];
 
 const startBtn = document.querySelector('.start-btn');
 startBtn.addEventListener('click', disableStartBtn);
@@ -39,7 +40,11 @@ function generateCards() {
     for (let i = 1; i < 51; i++) {
         let card = document.createElement('div');
         card.classList.add(`card-${i}`);
-        card.innerHTML = 'test';
+        
+        let randomWord = wordBank.splice([Math.floor(Math.random() * wordBank.length)], 1);
+        usedWords.push(randomWord.join());
+
+        card.innerHTML = randomWord;
         gameBoard.appendChild(card);
     }
 }
