@@ -43,13 +43,28 @@ function generateCards() {
     let gameBoard = document.querySelector('.game-board');
 
     for (let i = 1; i < 56; i++) {
-        let card = document.createElement('div');
-        card.classList.add(`card-${i}`);
-        
         let randomWord = wordBank.splice([Math.floor(Math.random() * wordBank.length)], 1);
         usedWords.push(randomWord.join());
 
+        let flipContainer = document.createElement('div');
+        flipContainer.classList.add('flip-container');
+        gameBoard.appendChild(flipContainer);
+
+        let flipCardInner = document.createElement('div');
+        flipCardInner.classList.add('flip-card-inner');
+        flipContainer.appendChild(flipCardInner);
+
+        let flipCardFront = document.createElement('div');
+        flipCardFront.classList.add('flip-card-front');
+        flipCardInner.appendChild(flipCardFront);
+
+        let flipCardBack = document.createElement('div');
+        flipCardBack.classList.add('flip-card-back');
+        flipCardInner.appendChild(flipCardBack);
+
+        let card = document.createElement('div');
+        card.classList.add(`card-${i}`);
         card.innerHTML = randomWord;
-        gameBoard.appendChild(card);
+        flipCardBack.appendChild(card);
     }
 }
