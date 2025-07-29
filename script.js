@@ -47,6 +47,11 @@ function getCardValues(event) {
         firstSelectedCard = event.currentTarget.id;
         numOfSelectedCards++;
     } else {
+        
+        if (event.currentTarget === firstSelectedElement) {
+            return;
+        }
+
         secondSelectedElement = event.currentTarget;
         secondSelectedElement.classList.toggle('flipped');
         secondSelectedCard = event.currentTarget.id;
