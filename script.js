@@ -31,6 +31,7 @@ let firstSelectedCard = '';
 let secondSelectedCard = '';
 let firstSelectedElement = null;
 let secondSelectedElement = null;
+let numOfMatches = 0;
 
 const startBtn = document.querySelector('.start-btn');
 startBtn.addEventListener('click', disableStartBtn);
@@ -64,12 +65,16 @@ function getCardValues(event) {
 }
 
 function checkMatch() {
+    let score = document.querySelector('.score');
+
     if (firstSelectedCard === secondSelectedCard) {
         numOfSelectedCards = 0;
         firstSelectedCard = '';
         secondSelectedCard = '';
         firstSelectedElement.style.visibility = 'hidden';
         secondSelectedElement.style.visibility = 'hidden';
+        numOfMatches++;
+        score.innerHTML = `${numOfMatches}`;
     } else {
         numOfSelectedCards = 0;
         firstSelectedCard = '';
