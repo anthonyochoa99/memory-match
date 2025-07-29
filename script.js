@@ -64,6 +64,7 @@ function generateCards() {
 
         let card = document.createElement('div');
         card.classList.add(`card-${i}`);
+        card.id = `${randomWord}`;
         card.innerHTML = randomWord;
         flipCardBack.appendChild(card);
     }
