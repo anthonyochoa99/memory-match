@@ -29,11 +29,55 @@ const wordBank = ['Lion', 'Lion',
                   'Shark', 'Shark',
                   'Dolphin', 'Dolphin'
                 ];
+
 let usedWords = [];
+let numOfSelectedCards = 0;
+let firstSelectedCard = '';
+let secondSelectedCard = '';
+let firstSelectedElement = null;
+let secondSelectedElement = null;
 
 const startBtn = document.querySelector('.start-btn');
 startBtn.addEventListener('click', disableStartBtn);
 startBtn.addEventListener('click', generateCards);
+
+function getCardValues(event) {
+    if (numOfSelectedCards >= 2) {
+        return;
+    }
+
+    if (firstSelectedCard === '') {
+        firstSelectedElement= event.currentTarget;
+        firstSelectedElement.classList.toggle('flipped');
+        firstSelectedCard = event.currentTarget.id;
+        numOfSelectedCards++;
+    } else {
+        secondSelectedElement = event.currentTarget;
+        secondSelectedElement.classList.toggle('flipped');
+        secondSelectedCard = event.currentTarget.id;
+        numOfSelectedCards++;
+    }
+
+    if (numOfSelectedCards === 2) {
+        setTimeout(checkMatch, 1500);
+    }
+}
+
+function checkMatch() {
+    if (firstSelectedCard === secondSelectedCard) {
+        numOfSelectedCards = 0;
+        firstSelectedCard = '';
+        secondSelectedCard = '';
+        firstSelectedElement.style.visibility = 'hidden';
+        secondSelectedElement.style.visibility = 'hidden';
+    } else {
+        numOfSelectedCards = 0;
+        firstSelectedCard = '';
+        secondSelectedCard = '';
+        firstSelectedElement.classList.toggle('flipped');
+        secondSelectedElement.classList.toggle('flipped');
+    }
+}
 
 function disableStartBtn() {
     startBtn.disabled = true;
@@ -48,6 +92,8 @@ function generateCards() {
 
         let flipContainer = document.createElement('div');
         flipContainer.classList.add('flip-container');
+        flipContainer.id = `${randomWord}`;
+        flipContainer.addEventListener('click', getCardValues);
         gameBoard.appendChild(flipContainer);
 
         let flipCardInner = document.createElement('div');
@@ -64,7 +110,6 @@ function generateCards() {
 
         let card = document.createElement('div');
         card.classList.add(`card-${i}`);
-        card.id = `${randomWord}`;
         card.innerHTML = randomWord;
         flipCardBack.appendChild(card);
     }
