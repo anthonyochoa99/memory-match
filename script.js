@@ -5,7 +5,6 @@ const wordBank = ['Lion', 'Lion',
                   'Zebra', 'Zebra', 
                   'Panda', 'Panda',
                   'Monkey', 'Monkey', 
-                  'Kangaroo', 'Kangaroo',
                   'Bear', 'Bear', 
                   'Wolf', 'Wolf',
                   'Fox', 'Fox', 
@@ -13,15 +12,11 @@ const wordBank = ['Lion', 'Lion',
                   'Rabbit', 'Rabbit', 
                   'Otter', 'Otter',
                   'Hippopotamus', 'Hippopotamus', 
-                  'Rhinoceros', 'Rhinoceros',
                   'Dog', 'Dog',
                   'Cat', 'Cat',
                   'Hamster', 'Hamster',
                   'Sloth', 'Sloth',
                   'Dinosaur', 'Dinosaur',
-                  'Lizard', 'Lizard',
-                  'Camel', 'Camel',
-                  'Koala', 'Koala',
                   'Raccoon', 'Raccoon',
                   'Octopus', 'Octopus',
                   'Stingray', 'Stingray',
@@ -86,7 +81,7 @@ function disableStartBtn() {
 function generateCards() {
     let gameBoard = document.querySelector('.game-board');
 
-    for (let i = 1; i < 56; i++) {
+    for (let i = 0; i < 50; i++) {
         let randomWord = wordBank.splice([Math.floor(Math.random() * wordBank.length)], 1);
         usedWords.push(randomWord.join());
 
