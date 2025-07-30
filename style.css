@@ -1,9 +1,9 @@
 body {
-    background-color: red;
+    background-color: #ffeedd;
 }
 
 h1 {
-    color: yellow;
+    color: #333;
 }
 
 header {
@@ -12,7 +12,7 @@ header {
 
 p {
     font-size: 20px;
-    color: yellow;
+    color: #333;
 }
 
 .intro {
@@ -32,8 +32,8 @@ main {
 }
 
 .start-btn {
-    background-color: yellow;
-    color: red;
+    background-color: #ff6f61;
+    color: #fff;
 }
 
 .game-board {
@@ -84,17 +84,17 @@ main {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border: solid 2px black;
+    border: solid 2px #ff9900;
     border-radius: 10px;
 }
 
 .flip-card-front {
-    background-color: yellow;
+    background-color: #ffffff;
 }
 
 .flip-card-back {
-    background-color: yellow;
-    color: red;
+    background-color: #ffcc66;
+    color: #d81b60;
     transform: rotateY(180deg);
 }
 
